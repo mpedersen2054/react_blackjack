@@ -6,9 +6,10 @@ import { render } from 'react-dom';
 import css from './styles/style.styl';
 
 // import components
-import Main from './components/Main.jsx';
-import Single from './components/Single.jsx';
-import PhotoGrid from './components/PhotoGrid.jsx';
+// import Main from './components/Main.jsx';
+// import Greeting from './components/Greeting.jsx';
+import App from './components/App.jsx';
+import Table from './components/Table.jsx';
 
 // import react-router deps
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
@@ -18,9 +19,8 @@ import store, { history } from './store';
 const router = (
   <Provider store={store}>
     <Router history={history}>
-      <Route path="/" component={Main}>
-        <IndexRoute component={PhotoGrid}></IndexRoute>
-        <Route path="/view/:postId" component={Single}></Route>
+      <Route path="/" component={App}>
+        <IndexRoute component={Table}></IndexRoute>
       </Route>
     </Router>
   </Provider>
