@@ -6,9 +6,9 @@ import { render } from 'react-dom';
 import css from './styles/style.styl';
 
 // import components
-import Main from './components/Main';
-import Single from './components/Single';
-import PhotoGrid from './components/PhotoGrid';
+import Main from './components/Main.jsx';
+import Single from './components/Single.jsx';
+import PhotoGrid from './components/PhotoGrid.jsx';
 
 // import react-router deps
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
