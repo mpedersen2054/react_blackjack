@@ -2,13 +2,13 @@
 import React from 'react';
 
 import Table from './Table.jsx';
-import Navbar from './Navbar.jsx';
+import TopNav from './TopNav.jsx';
 
 const App = React.createClass({
   render() {
     return(
-      <div>
-        <Navbar />
+      <div className="">
+        <TopNav />
         <Table />
       </div>
     )
