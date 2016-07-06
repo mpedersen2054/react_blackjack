@@ -11,16 +11,20 @@ import {
 const Table = React.createClass({
   render() {
     return(
-      <Grid fluid>
-        <Col xs={12} md={9} lg={9}>
-          <Hand />
-          <Hand />
-        </Col>
+      <div className="table-container">
+        <Grid fluid>
+          <Col xs={12} sm={12} md={9} lg={9}>
+            <div className="hands">
+              <Hand />
+              <Hand />
+            </div>
+          </Col>
 
-        <Col xs={12} md={3} lg={3}>
-          <Interface />
-        </Col>
-      </Grid>
+          <Col xs={12} sm={12} md={3} lg={3} className="fixz">
+            <Interface />
+          </Col>
+        </Grid>
+      </div>
     )
   }
 });

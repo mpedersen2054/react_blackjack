@@ -6,9 +6,15 @@ import Card from './Card.jsx';
 const Hand = React.createClass({
   render() {
     return(
-      <div>
-        <Card />
-        <Card />
+      <div className="hand">
+        <h4>Player:</h4>
+        <div className="cards">
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </div>
       </div>
     )
   }

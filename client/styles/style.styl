@@ -2,8 +2,93 @@
 @import '_typography.styl'
 @import '_animations.styl'
 
+
+
+// clearfix()
+//   zoom 1
+//   &:after
+//   &:before
+//     content ""
+//     display table
+//   &:after
+//     clear both
+
+navbarGrey = #F8F8F8
+
 h1
   color red
 
 .profile-img
-  max-height: 100%
+  max-height 100%
+
+.navbar-default
+  padding 0 15px
+
+.lg-mini-title
+  font-size 18px
+
+.wrapper
+  position relative
+  top 0
+  left 0
+  right 0
+  bottom 0
+  width 100%
+  height auto
+  // overflow auto
+
+.table-container
+  position relative
+  width 100%
+  height 100%
+  // background-color #bbb
+  padding 80px 0 0
+
+
+.interface
+  position absolute
+  min-height 640px
+  top 0
+  right 5px
+  overflow hidden
+  border-left 1px solid #ddd
+  padding-left 20px
+
+  @media (max-width: 992px)
+    position relative
+    top auto
+    right auto
+    border-left none
+    padding-left 0
+    margin-top 40px
+
+  .interface-meta
+    overflow scroll
+    img
+      margin 0 auto
+
+
+
+.hands
+
+
+.hand
+  margin-bottom 20px
+  h4
+    margin-top 0
+
+
+.cards
+  display inline-block
+
+.card
+  width 150px
+  padding 2px
+  background-color #000
+  border-radius 10px
+  height auto
+  float left
+  margin 0 5px
+  img
+    width 100%
+    height auto

@@ -7,9 +7,10 @@ import TopNav from './TopNav.jsx';
 const App = React.createClass({
   render() {
     return(
-      <div className="">
+      <div className="wrapper">
         <TopNav />
         <Table />
+        <div className="pull-right"></div>
       </div>
     )
   }
