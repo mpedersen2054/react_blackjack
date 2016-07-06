@@ -11,9 +11,6 @@ const Hand = React.createClass({
         <div className="cards">
           <Card />
           <Card />
-          <Card />
-          <Card />
-          <Card />
         </div>
       </div>
     )

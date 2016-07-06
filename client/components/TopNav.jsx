@@ -10,7 +10,7 @@ const TopNav = React.createClass({
   render() {
     return(
       <div id="navbar">
-        <Navbar fluid fixedTop>
+        <Navbar fluid fixedTop inverse>
           <Navbar.Header>
             <Navbar.Brand>
               <a href="#">BlackJack</a>

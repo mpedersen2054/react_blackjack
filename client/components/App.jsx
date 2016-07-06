@@ -10,7 +10,6 @@ const App = React.createClass({
       <div className="wrapper">
         <TopNav />
         <Table />
-        <div className="pull-right"></div>
       </div>
     )
   }
