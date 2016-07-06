@@ -21,7 +21,27 @@ const Table = React.createClass({
   },
 
   handleDealClick() {
-    console.log('dealing, called from Table!');
+    var { deck } = this.state;
+    var dealerHand = [];
+    var playerHand = [];
+
+    // if too little cards in deck, shuffle in a new one
+
+    // give the player 2 cards
+    playerHand.push(deck.pop());
+    playerHand.push(deck.pop());
+
+    // give dealer 1 card, the hidden card will be of no value,
+    // the dealer will be dealt another card when showDeck=false
+    dealerHand.push(deck.pop());
+
+    // set the state for the updated info
+    this.setState({
+      dealerHand,
+      playerHand,
+      deck,
+      status: 'playing'
+    })
   },
 
   handleHitClick() {
@@ -47,8 +67,8 @@ const Table = React.createClass({
         <Grid fluid>
           <Col xs={12} sm={12} md={9} lg={9}>
             <div className="hands">
-              <Hand hand={this.state.dealer} />
-              <Hand hand={this.state.player} />
+              <Hand hand={this.state.dealerHand} showDeck={true} name={'Dealer'} />
+              <Hand hand={this.state.playerHand} name={'Your Name'} />
             </div>
           </Col>
 
