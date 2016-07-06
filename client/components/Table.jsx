@@ -10,6 +10,12 @@ import {
 
 const Table = React.createClass({
   render() {
+
+    const { deck } = this.props;
+
+    console.log('from Table!')
+    console.log(deck)
+
     return(
       <div className="table-container">
         <Grid fluid>
