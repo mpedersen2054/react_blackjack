@@ -17,6 +17,7 @@ const Interface = React.createClass({
   },
 
   render() {
+    const { status } = this.props;
 
     const panelDealer = (
       <div>
@@ -42,7 +43,7 @@ const Interface = React.createClass({
               <ListGroupItem className="lg-mini-title">Dealer</ListGroupItem>
               <ListGroupItem>
                 <p className="text-muted">score</p>
-                <div className="score">100</div>
+                <div className="score text-info">100</div>
               </ListGroupItem>
             </ListGroup>
           </div>
@@ -53,7 +54,7 @@ const Interface = React.createClass({
               <ListGroupItem className="lg-mini-title">Your Name</ListGroupItem>
               <ListGroupItem>
                 <p className="text-muted">score</p>
-                <div className="score">100</div>
+                <div className="score text-info">100</div>
               </ListGroupItem>
             </ListGroup>
           </div>
@@ -61,9 +62,9 @@ const Interface = React.createClass({
 
         <div className="bottom-interface">
           <ButtonGroup justified className="thicker">
-            <Button href="#" onClick={this.props.deal} bsStyle="default">Deal</Button>
-            <Button href="#" onClick={this.props.hit} bsStyle="success" disabled>Hit</Button>
-            <Button href="#" onClick={this.props.stay} bsStyle="warning" disabled>Stay</Button>
+            <Button href="#" onClick={this.props.deal} bsStyle="default" bsSize="large" disabled={status === 'new' ? false : false}>Deal</Button>
+            <Button href="#" onClick={this.props.hit} bsStyle="default" bsSize="large" disabled={status === 'new' ? true : false}>Hit</Button>
+            <Button href="#" onClick={this.props.stay} bsStyle="default" bsSize="large" disabled={status === 'new' ? true : false}>Stay</Button>
           </ButtonGroup>
         </div>
 

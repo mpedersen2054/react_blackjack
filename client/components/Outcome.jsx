@@ -23,7 +23,7 @@ const Outcome = React.createClass({
     }
 
     else if (status === 'playing') {
-      console.log('playing');
+      return <Alert bsStyle="info">Do you want to hit or stay?</Alert>
     }
 
     else if (status === 'win') {
