@@ -13,14 +13,14 @@ const Table = React.createClass({
     return(
       <div className="table-container">
         <Grid fluid>
-          <Col xs={12} sm={12} md={9} lg={9}>
+          <Col xs={12} sm={12} md={10} lg={9}>
             <div className="hands">
               <Hand />
               <Hand />
             </div>
           </Col>
 
-          <Col xs={12} sm={12} md={3} lg={3} className="fixz">
+          <Col xs={12} sm={12} md={2} lg={3}>
             <Interface />
           </Col>
         </Grid>

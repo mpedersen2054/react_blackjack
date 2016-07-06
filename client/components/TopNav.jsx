@@ -13,7 +13,7 @@ const TopNav = React.createClass({
         <Navbar fluid fixedTop>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#">React-Bootstrap</a>
+              <a href="#">BlackJack</a>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
