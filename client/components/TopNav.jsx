@@ -20,9 +20,11 @@ const TopNav = React.createClass({
           <Navbar.Collapse>
             <Nav pullRight>
               <NavDropdown eventKey={3} title="patmedersen" id="basic-nav-dropdown">
+                {/*
                 <Navbar.Text>
                   <Image className="profile-img" src="http://i2.wp.com/www.geekstogo.com/forum/public/style_images/shift/profile/default_large.png" circle />
                 </Navbar.Text>
+                */}
                 <MenuItem eventKey={3.1}>Action</MenuItem>
                 <MenuItem eventKey={3.2}>Another action</MenuItem>
                 <MenuItem eventKey={3.3}>Something else here</MenuItem>
