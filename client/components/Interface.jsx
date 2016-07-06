@@ -1,12 +1,21 @@
 
 import React from 'react';
 
+import Outcome from './Outcome.jsx';
+
 import {
   Panel, ListGroup, ListGroupItem, Image, ButtonGroup, Button,
   MenuItem
 } from 'react-bootstrap';
 
 const Interface = React.createClass({
+
+  getDefaultProps() {
+    return {
+      status: 'new'
+    }
+  },
+
   render() {
 
     const panelDealer = (
@@ -22,31 +31,42 @@ const Interface = React.createClass({
 
     return(
       <div>
+
+        <Outcome status={this.props.status} />
+
         <div className="interface">
           <div className="dealer-meta interface-meta">
+            {/* Dealer */}
             <ListGroup>
               <ListGroupItem>{panelDealer}</ListGroupItem>
               <ListGroupItem className="lg-mini-title">Dealer</ListGroupItem>
-              <ListGroupItem>...</ListGroupItem>
+              <ListGroupItem>
+                <p className="text-muted">score</p>
+                <div className="score">100</div>
+              </ListGroupItem>
             </ListGroup>
           </div>
           <div className="player-meta interface-meta">
+            {/* Player */}
             <ListGroup>
               <ListGroupItem>{panelPlayer}</ListGroupItem>
               <ListGroupItem className="lg-mini-title">Your Name</ListGroupItem>
               <ListGroupItem>
-                hello
+                <p className="text-muted">score</p>
+                <div className="score">100</div>
               </ListGroupItem>
             </ListGroup>
           </div>
         </div>
+
         <div className="bottom-interface">
           <ButtonGroup justified className="thicker">
-            <Button href="#" bsStyle="info">Deal</Button>
-            <Button href="#" bsStyle="success">Hit</Button>
-            <Button href="#" bsStyle="danger">Stay</Button>
+            <Button href="#" onClick={this.props.deal} bsStyle="default">Deal</Button>
+            <Button href="#" onClick={this.props.hit} bsStyle="success" disabled>Hit</Button>
+            <Button href="#" onClick={this.props.stay} bsStyle="warning" disabled>Stay</Button>
           </ButtonGroup>
         </div>
+
       </div>
     )
   }
