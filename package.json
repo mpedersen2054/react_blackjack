@@ -33,6 +33,7 @@
     "eslint-plugin-react": "^5.0.1",
     "express": "^4.13.4",
     "imagemin-optipng": "5.1.0",
+    "lodash": "4.13.1",
     "raven-js": "^2.3.0",
     "react": "15.1.0",
     "react-addons-css-transition-group": "^15.0.2",

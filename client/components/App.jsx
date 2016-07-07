@@ -1,8 +1,7 @@
 
 import React from 'react';
 import * as mixins from '../lib/mixins';
-import underscore from 'underscore';
-const _ = underscore;
+import _ from 'lodash';
 
 import Table from './Table.jsx';
 import TopNav from './TopNav.jsx';

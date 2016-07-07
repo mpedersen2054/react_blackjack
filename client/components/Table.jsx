@@ -1,6 +1,6 @@
 
 import React from 'react';
-import _ from 'underscore';
+import _ from 'lodash';
 
 import Hand from './Hand.jsx';
 import Interface from './Interface.jsx';
@@ -37,9 +37,9 @@ const Table = React.createClass({
 
     // set the state for the updated info
     this.setState({
-      dealerHand,
-      playerHand,
-      deck,
+      dealerHand: dealerHand,
+      playerHand: playerHand,
+      deck: deck,
       status: 'playing'
     })
   },
@@ -52,15 +52,20 @@ const Table = React.createClass({
     console.log('staying, called from Table!');
   },
 
-  handleCalculateScore() {
-    console.log('calculating the score')
+  calculateScore(hand) {
+    var score = _.sumBy(hand, 'v');
+    var aces = _.countBy(hand,{v:11}).true;
+
+    // need to hand case where score > 21 && aces > 0
+
+    return score;
   },
 
   render() {
     const { deck } = this.props;
 
-    console.log('props', this.props);
-    console.log('state', this.state);
+    // console.log('props', this.props);
+    // console.log('state', this.state);
 
     return(
       <div className="table-container">
@@ -78,8 +83,8 @@ const Table = React.createClass({
               deal={this.handleDealClick}
               hit={this.handleHitClick}
               stay={this.handleStayClick}
-              dealerScore={this.state.dealerScore}
-              playerScore={this.state.playerScore} />
+              dealerScore={this.calculateScore(this.state.dealerHand)}
+              playerScore={this.calculateScore(this.state.playerHand)} />
           </Col>
         </Grid>
       </div>
