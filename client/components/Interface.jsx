@@ -17,7 +17,7 @@ const Interface = React.createClass({
   },
 
   render() {
-    const { status } = this.props;
+    const { status, dealerScore, playerScore } = this.props;
 
     const panelDealer = (
       <div>
@@ -43,7 +43,7 @@ const Interface = React.createClass({
               <ListGroupItem className="lg-mini-title">Dealer</ListGroupItem>
               <ListGroupItem>
                 <p className="text-muted">score</p>
-                <div className="score text-info">100</div>
+                <div className="score text-info">{dealerScore}</div>
               </ListGroupItem>
             </ListGroup>
           </div>
@@ -54,7 +54,7 @@ const Interface = React.createClass({
               <ListGroupItem className="lg-mini-title">Your Name</ListGroupItem>
               <ListGroupItem>
                 <p className="text-muted">score</p>
-                <div className="score text-info">100</div>
+                <div className="score text-info">{playerScore}</div>
               </ListGroupItem>
             </ListGroup>
           </div>

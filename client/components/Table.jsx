@@ -45,7 +45,27 @@ const Table = React.createClass({
   },
 
   handleHitClick() {
-    console.log('hitting, called from Table!');
+    var { status, playerHand } = this.state;
+
+    // check deck size to see if we need to shuffle in a new deck
+
+    // probably should shuffle the deck here so cant cheat with state :)
+    var shuffled = _.shuffle(this.state.deck);
+    playerHand.push(shuffled.pop());
+
+    var newPlayerScore = this.calculateScore(playerHand);
+    // if 5 cards in hand and still under 21, player wins
+    if (newPlayerScore < 21 && playerHand.length > 5) newStatus = 'win';
+    // if hand totals over 21, player loses
+    if (newPlayerScore > 21) newStatus = 'lose';
+
+    // update the state
+    this.setState({
+      status: status,
+      playerHand: playerHand,
+      playerScore: newPlayerScore,
+      deck: shuffled
+    })
   },
 
   handleStayClick() {

@@ -7,6 +7,8 @@ import {
 
 const Card = React.createClass({
 
+  // returns <Image src={} /> where src is an image in
+  // client/images/{val}_of_{suite}.png
   showCard() {
     // needs to get <val>_of_<suite>.png and return the card
     var _val, _suite, _imgUrl;
