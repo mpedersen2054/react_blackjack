@@ -21,11 +21,12 @@ const Table = React.createClass({
   },
 
   handleDealClick() {
-    var { deck } = this.state;
+    var deck = this.state.deck;
     var dealerHand = [];
     var playerHand = [];
 
     // if too little cards in deck, shuffle in a new one
+    if (deck.length < 5) deck = this.props.deck;
 
     // give the player 2 cards
     playerHand.push(deck.pop());
@@ -37,17 +38,20 @@ const Table = React.createClass({
 
     // set the state for the updated info
     this.setState({
+      status: 'playing',
       dealerHand: dealerHand,
       playerHand: playerHand,
-      deck: deck,
-      status: 'playing'
+      deck: deck
     })
   },
 
   handleHitClick() {
-    var { status, playerHand } = this.state;
+    var newStatus  = this.state.status;
+    var playerHand = this.state.playerHand;
 
     // check deck size to see if we need to shuffle in a new deck
+    if (this.state.deck.length < 5)
+      this.state.deck = _.shuffle(this.props.deck);
 
     // probably should shuffle the deck here so cant cheat with state :)
     var shuffled = _.shuffle(this.state.deck);
@@ -55,13 +59,17 @@ const Table = React.createClass({
 
     var newPlayerScore = this.calculateScore(playerHand);
     // if 5 cards in hand and still under 21, player wins
-    if (newPlayerScore < 21 && playerHand.length > 5) newStatus = 'win';
+    if (newPlayerScore < 21 && playerHand.length === 5)
+      newStatus = 'win';
     // if hand totals over 21, player loses
-    if (newPlayerScore > 21) newStatus = 'lose';
+    if (newPlayerScore > 21)
+      newStatus = 'lose';
+
+    console.log('status... from handleHit', newStatus)
 
     // update the state
     this.setState({
-      status: status,
+      status: newStatus,
       playerHand: playerHand,
       playerScore: newPlayerScore,
       deck: shuffled
@@ -70,14 +78,24 @@ const Table = React.createClass({
 
   handleStayClick() {
     console.log('staying, called from Table!');
+    // check if deck size < 5, if so shuffle in new deck
+    // call calculateScore to update scores for player/dealer
   },
 
   calculateScore(hand) {
     var score = _.sumBy(hand, 'v');
-    var aces = _.countBy(hand,{v:11}).true;
+    // var aces = 0;
 
-    // need to hand case where score > 21 && aces > 0
+    // need to handle case where score > 21 && aces > 0
+    if (score > 21) {
+      var aces = _.countBy(hand,{v: 11}).true || 0;
+      while (score > 21 && aces > 0) {
+        score -= 10;
+        aces  -= 1;
+      }
+    }
 
+    console.log('from calculateScore: score: ', score)
     return score;
   },
 

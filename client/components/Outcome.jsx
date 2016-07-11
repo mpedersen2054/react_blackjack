@@ -18,6 +18,8 @@ const Outcome = React.createClass({
   handleOutcome() {
     const { status } = this.props;
 
+    console.log('Outcome.handOutcome: ', status);
+
     if (status === 'new') {
       return <Alert bsStyle="info">Click 'Deal' to begin!</Alert>
     }
@@ -35,7 +37,7 @@ const Outcome = React.createClass({
     }
 
     else {
-      console.log('unhandled status!');
+      console.log('unhandled status!: ', status);
     }
 
   },
