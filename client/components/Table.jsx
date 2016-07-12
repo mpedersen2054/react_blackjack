@@ -93,7 +93,6 @@ const Table = React.createClass({
 
     // compute game status while dealing cards to dealer
     while (dealerScore < playerScore || dealerScore <= 17) {
-
       // deal a card
       dealerHand.push(shuffled.pop());
       dealerScore = this.calculateScore(dealerHand);
