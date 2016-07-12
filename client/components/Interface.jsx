@@ -30,6 +30,23 @@ const Interface = React.createClass({
       </div>
     )
 
+    var dealBtnCond, hitBtnCond, stayBtnCond;
+
+    // true = disable btn, false = show btn
+    if (status === 'new') {
+      dealBtnCond = false;
+      hitBtnCond  = true;
+      stayBtnCond = true;
+    } else if (status === 'playing') {
+      dealBtnCond = true;
+      hitBtnCond  = false;
+      stayBtnCond = false;
+    } else if (status === 'lose' || status === 'win') {
+      dealBtnCond = false;
+      hitBtnCond  = true;
+      stayBtnCond = true;
+    }
+
     return(
       <div>
 
@@ -62,9 +79,9 @@ const Interface = React.createClass({
 
         <div className="bottom-interface">
           <ButtonGroup justified className="thicker">
-            <Button href="#" onClick={this.props.deal} bsStyle="default" bsSize="large" disabled={status === 'new' ? false : false}>Deal</Button>
-            <Button href="#" onClick={this.props.hit} bsStyle="default" bsSize="large" disabled={status === 'new' ? true : false}>Hit</Button>
-            <Button href="#" onClick={this.props.stay} bsStyle="default" bsSize="large" disabled={status === 'new' ? true : false}>Stay</Button>
+            <Button href="#" onClick={this.props.deal} bsStyle="default" bsSize="large" disabled={dealBtnCond}>Deal</Button>
+            <Button href="#" onClick={this.props.hit} bsStyle="default" bsSize="large" disabled={hitBtnCond}>Hit</Button>
+            <Button href="#" onClick={this.props.stay} bsStyle="default" bsSize="large" disabled={stayBtnCond}>Stay</Button>
           </ButtonGroup>
         </div>
 

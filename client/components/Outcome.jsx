@@ -29,11 +29,11 @@ const Outcome = React.createClass({
     }
 
     else if (status === 'win') {
-      console.log('win');
+      return <Alert bsStyle="success">Congrats! You Win! Hit deal to play again.</Alert>
     }
 
     else if (status === 'lose') {
-      console.log('lose');
+      return <Alert bsStyle="danger">Sorry. You lose. Hit Deal to play again.</Alert>
     }
 
     else {

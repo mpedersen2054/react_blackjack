@@ -65,8 +65,6 @@ const Table = React.createClass({
     if (newPlayerScore > 21)
       newStatus = 'lose';
 
-    console.log('status... from handleHit', newStatus)
-
     // update the state
     this.setState({
       status: newStatus,
@@ -84,7 +82,6 @@ const Table = React.createClass({
 
   calculateScore(hand) {
     var score = _.sumBy(hand, 'v');
-    // var aces = 0;
 
     // need to handle case where score > 21 && aces > 0
     if (score > 21) {
@@ -102,8 +99,8 @@ const Table = React.createClass({
   render() {
     const { deck } = this.props;
 
-    // console.log('props', this.props);
-    // console.log('state', this.state);
+    console.log('props', this.props);
+    console.log('state', this.state);
 
     return(
       <div className="table-container">
