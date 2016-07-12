@@ -41,7 +41,7 @@ const Interface = React.createClass({
       dealBtnCond = true;
       hitBtnCond  = false;
       stayBtnCond = false;
-    } else if (status === 'lose' || status === 'win') {
+    } else if (status === 'lose' || status === 'win' || status === 'tie') {
       dealBtnCond = false;
       hitBtnCond  = true;
       stayBtnCond = true;

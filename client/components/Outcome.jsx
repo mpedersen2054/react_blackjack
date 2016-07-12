@@ -18,8 +18,7 @@ const Outcome = React.createClass({
   handleOutcome() {
     const { status } = this.props;
 
-    console.log('Outcome.handOutcome: ', status);
-
+    // hand the outcome alert based on this.props.status
     if (status === 'new') {
       return <Alert bsStyle="info">Click 'Deal' to begin!</Alert>
     }
@@ -34,6 +33,10 @@ const Outcome = React.createClass({
 
     else if (status === 'lose') {
       return <Alert bsStyle="danger">Sorry. You lose. Hit Deal to play again.</Alert>
+    }
+
+    else if (status === 'tie') {
+      return <Alert bsStyle="warning">Tie! No one loses. Hit Deal to play again.</Alert>
     }
 
     else {

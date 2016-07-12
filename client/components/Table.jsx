@@ -76,8 +76,50 @@ const Table = React.createClass({
 
   handleStayClick() {
     console.log('staying, called from Table!');
+    var deck = this.state.deck;
+    var dealerHand = this.state.dealerHand;
+
     // check if deck size < 5, if so shuffle in new deck
+    if (this.state.deck.length < 5)
+      this.state.deck = _.shuffle(this.props.deck);
+
+    // shuffle deck to prevent from cheating with state :)
+    var shuffled = _.shuffle(this.state.deck);
+
     // call calculateScore to update scores for player/dealer
+    var dealerScore = this.calculateScore(dealerHand);
+    var playerScore = this.calculateScore(this.state.playerHand);
+    var dealerHasCharlie = false;
+
+    // compute game status while dealing cards to dealer
+    while (dealerScore < playerScore || dealerScore <= 17) {
+
+      // deal a card
+      dealerHand.push(shuffled.pop());
+      dealerScore = this.calculateScore(dealerHand);
+
+      if (dealerScore < 21 && dealerHand.length === 5) {
+        dealerHasCharlie = true;
+        break;
+      }
+    }
+
+    var status;
+    // handle the comparison of player/dealer hands
+    if (dealerScore === playerScore)
+      status = 'tie';
+    else if (dealerScore <= 21 || dealerHasCharlie)
+      status = 'lose';
+    else
+      status = 'win';
+
+    // update the state vars accordingly
+    this.setState({
+      dealerHand: dealerHand,
+      deck: shuffled,
+      status: status
+    });
+
   },
 
   calculateScore(hand) {
@@ -99,8 +141,8 @@ const Table = React.createClass({
   render() {
     const { deck } = this.props;
 
-    console.log('props', this.props);
-    console.log('state', this.state);
+    // console.log('props', this.props);
+    // console.log('state', this.state);
 
     return(
       <div className="table-container">
