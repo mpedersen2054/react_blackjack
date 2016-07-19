@@ -6,8 +6,7 @@ var config = require('./webpack.config.dev');
 var app = express();
 var compiler = webpack(config);
 
-console.log(process.env.PORT)
-var port = process.env.PORT || 7770;
+app.set('port', (process.env.PORT || 5000))
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
@@ -26,5 +25,5 @@ app.listen(port, 'localhost', function(err) {
     return;
   }
 
-  console.log('Listening at http://localhost:7770');
+  console.log('Listening at http://localhost:5000');
 });
