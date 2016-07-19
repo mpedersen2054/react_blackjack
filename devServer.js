@@ -6,6 +6,7 @@ var config = require('./webpack.config.dev');
 var app = express();
 var compiler = webpack(config);
 
+console.log(process.env.PORT)
 var port = process.env.PORT || 7770;
 
 app.use(require('webpack-dev-middleware')(compiler, {

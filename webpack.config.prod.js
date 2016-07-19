@@ -4,13 +4,11 @@ var webpack = require('webpack');
 module.exports = {
   devtool: 'source-map',
   entry: [
-
     './client/main.jsx'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/'
+    filename: 'bundle.js'
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -46,6 +44,7 @@ module.exports = {
     },
     {
       test: /\.(png|jpg|gif)$/,
+      include: path.join(__dirname, 'client'),
       loader: "file-loader?name=images/[name].[ext]"
     }
     ]

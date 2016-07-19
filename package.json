@@ -1,5 +1,5 @@
 {
-  "name": "learn-redux",
+  "name": "react_blackjack",
   "version": "1.0.0",
   "description": ":) ",
   "scripts": {
@@ -14,13 +14,8 @@
     "node": "4.2.1",
     "npm": "3.3.8"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wesbos/Learn-Redux.git"
-  },
-  "author": "Wes Bos",
+  "author": "Pat Medersen",
   "license": "MIT",
-  "homepage": "https://github.com/wesbos/Learn-Redux",
   "dependencies": {
     "babel-core": "^6.7.7",
     "babel-eslint": "^6.0.4",
