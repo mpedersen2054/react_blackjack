@@ -10,6 +10,10 @@
     "start": "node devServer.js",
     "tunnel": "browser-sync start --proxy localhost:7770 --tunnel wesbos"
   },
+  "engines": {
+    "node": "4.2.1",
+    "npm": "3.3.8"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/wesbos/Learn-Redux.git"
