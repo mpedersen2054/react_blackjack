@@ -20,10 +20,10 @@ app.use(webpackMiddleware(compiler));
 // app.use(require('webpack-hot-middleware')(compiler));
 
 app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(app.get('port'), 'localhost', function(err) {
+app.listen(app.get('port'), function(err) {
   if (err) {
     console.log(err);
     return;
